@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('images/home-bg.jpg'); /* Same background as home.html */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        /* Background behind the form container */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(128, 0, 0, 0.9), rgba(255, 255, 255, 0.3)); /* Maroon with a gradient */
+            z-index: -1;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9); /* White form background with transparency */
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for elevation */
+        }
+
+        .login-container h2 {
+            font-family: 'Great Vibes', cursive;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #800000; /* Maroon color for heading */
+        }
+
+        .login-container input[type="text"], 
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #800000; /* Maroon color for the button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #990000; /* Slightly darker maroon on hover */
+        }
+
+        .login-container p {
+            margin-top: 20px;
+        }
+
+        .login-container a {
+            color: #800000; /* Maroon color for links */
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        .order-button {
+            margin-top: 10px;
+            background-color: transparent; /* No background for the link */
+            color: #800000; /* Maroon color for the order link */
+            padding: 0;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            text-decoration: underline; /* Underline for text link */
+        }
+
+        .order-button:hover {
+            color: #990000; /* Darker maroon on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background overlay to mimic home.html background -->
+    <div class="background-overlay"></div>
+
+    <div class="login-container">
+        <h2>Login to CopperCraft</h2>
+        <form action="dashboard.html" method="post">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Sign up</a></p>
+       
+
+        <!-- Login to Order as a text link -->
+        <p><a  href="home.html">Login to Order</a></p>
+    </div>
+</body>
+</html>

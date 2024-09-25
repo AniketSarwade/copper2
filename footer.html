@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+    <style>
+footer {
+    width: 100%; /* Ensure the footer spans the full width */
+    background-image: url('images/bf1.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensure the image covers the entire footer */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #fff; /* White text */
+    font-family: 'Playfair Display', serif; /* Royal font */
+    padding: 30px; /* Increased padding */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box; /* Include padding in the element's width */
+}
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px; /* Increased minimum width for each section */
+            margin: 15px; /* Increased margin */
+        }
+
+        .footer-section h3 {
+            font-family: 'Great Vibes', cursive; /* Calligraphy font for headings */
+            margin-top: 0;
+            font-size: 1.5em; /* Increased font size */
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0; /* Increased margin */
+            font-size: 1.1em; /* Increased font size */
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-section .email-signup {
+            margin-top: 20px; /* Increased margin */
+        }
+
+        .footer-section .email-signup p {
+            margin-bottom: 10px; /* Spacing between the text and input */
+            font-size: 1.2em; /* Increased font size */
+        }
+
+        .footer-section .email-signup input[type="email"] {
+            padding: 10px; /* Increased padding */
+            border: none;
+            border-radius: 5px;
+            width: calc(100% - 130px); /* Adjusted width to accommodate increased margin */
+            margin-right: 20px; /* Increased margin-right to create gap */
+            font-size: 1em; /* Increased font size */
+        }
+
+        .footer-section .email-signup button {
+            background-color: #fff;
+            color: #800000;
+            border: none;
+            padding: 10px 20px; /* Increased padding */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em; /* Increased font size */
+            width: 120px; /* Set a fixed width for the button */
+        }
+
+        .footer-section .email-signup button:hover {
+            background-color: #f0e6e6;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <!-- Company Info Section -->
+        <div class="footer-section">
+            <h3>CopperCraft</h3>
+            <p>Owner: John Doe</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="about.html">About Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="stores.html">Retail Stores</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+
+        <!-- Help Section -->
+        <div class="footer-section">
+            <h3>Help</h3>
+            <a href="brass-care.html">Brass Care</a>
+            <a href="copper-care.html">Copper Care</a>
+        </div>
+
+        <!-- Email Signup Section -->
+        <div class="footer-section">
+            <div class="email-signup">
+                <p>Join our Email List:</p>
+                <input type="email" placeholder="Enter your email">
+                <p></p>
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
