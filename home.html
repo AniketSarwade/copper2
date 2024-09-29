@@ -22,39 +22,50 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #b87333;
             padding: 10px 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 10;
-            color: #fff;
+            color: #800000; /* Maroon text color */
             text-align: center;
-            font-family: 'Allura', cursive;
-            font-size: 1.0em;
+            font-family: 'Allura', cursive; /* Set Allura font */
+            font-size: 1.0em; /* Adjust font size as needed */
             line-height: 1.2;
+            background-color: rgba(245, 240, 225, 0.8); /* Light background for visibility */
+            display: none; /* Initially hide the header */
         }
 
-        h1 {
-            font-size: 2.5em;
+        header.scrolled {
+            background-color: #800000; /* Maroon background when scrolled */
+            color: white; /* White text color */
+            display: block; /* Show header on scroll */
+        }
+
+        .slideshow-overlay {
+            position: absolute;
+            left: 50%; /* Center the overlay horizontally */
+            top: 10%; /* Adjust this value to position the text lower or higher */
+            text-align: center; /* Center the text within the overlay */
+            transform: translateX(-50%); /* Shift back to the left by half its width */
+            z-index: 5; /* Ensure it appears above the images */
+            color: #800000; /* Maroon text color */
+        }
+
+        .slideshow-overlay h1 {
             margin: 0;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-
-        /* Slideshow Styles */
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin-top: 80px; /* Space for header */
-            overflow: hidden;
-            height: 500px; /* Increased height */
+            font-size: 2.5em; /* Size for main title */
+            font-family: 'Allura', cursive; /* Ensure this is the same font as the header */
         }
 
         .mySlides {
             display: none;
             height: 100%; /* Set height to 100% of the container */
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            height: 500px; /* Increased height */
+            overflow: hidden;
         }
 
         .slideshow-container img {
@@ -121,18 +132,17 @@
         }
 
         /* Footer Styles */
-        /* Footer Styles */
-footer {
-    background-color: #b87333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px; /* Add margin-top for space above footer */
-}
+        footer {
+            background-color: #b87333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px; /* Add margin-top for space above footer */
+        }
 
         footer a {
             color: #fff;
@@ -147,9 +157,9 @@ footer {
     </style>
 </head>
 <body>
-    <header>
+    <header id="header">
         <h1>CopperCraft</h1>
-        <h2>The ancient metal for modern health.</h2>
+        <!-- <h2>The ancient metal for modern health.</h2> -->
     </header>
 
     <!-- Slideshow Section -->
@@ -164,6 +174,12 @@ footer {
             <img src="slideshow/s3.jpg" alt="Slideshow Image 3">
         </div>
 
+        <!-- Slideshow Overlay for Header Text -->
+        <div class="slideshow-overlay">
+            <h1>CopperCraft</h1>
+            <!-- <h2>The ancient metal for modern health.</h2> -->
+        </div>
+
         <!-- Navigation Dots -->
         <div style="text-align:center">
             <span class="dot"></span>
@@ -172,68 +188,73 @@ footer {
         </div>
     </div>
 
-    <!-- Video Section -->
+    <!-- Video Section for Copper Utensils -->
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="video/CV1.mp4" type="video/mp4"> <!-- Replace with your video source -->
+            <source src="video/CV1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="video-overlay">
-            <h3>Copper Utensils</h3>
-            <p>Elevate your cooking with our premium copper utensils. <a href="#more-info">Discover the collection!</a></p>
+            <h3>Discover the Craft of Copper</h3>
+            <p>Embrace a healthier lifestyle with our handcrafted copper utensils.</p>
+            <a href="utensils.html">Discover our Copper Products</a>
         </div>
     </div>
+
+    <!-- Video Section for Puja Thalis -->
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="video/cv2.mp4" type="video/mp4"> <!-- Replace with your video source -->
+            <source src="video/cv2.mp4" type="video/mp4"> <!-- Change the source for Puja Thalis video if needed -->
             Your browser does not support the video tag.
         </video>
         <div class="video-overlay">
-            <h3>Puja Samagri</h3>
-            <p>Enhance your spiritual rituals with our curated selection of Puja Samagri, essential for every worship ceremony. <a href="#more-info">Explore our offerings!</a></p>
+            <h3>Explore Our Puja Thalis</h3>
+            <p>Beautifully crafted thalis for your sacred rituals.</p>
+            <a href="Thalis.html">Discover our Puja Thalis</a> <!-- Redirects to Thalis.html -->
         </div>
     </div>
-    <div >
 
-    </div>
-    
-
-    <!-- Placeholder for footer -->
-    <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <footer id="footer"></footer>
 
     <script>
+        // Load footer content from footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
         // Slideshow Functionality
         let slideIndex = 0;
         showSlides();
 
         function showSlides() {
-            let i;
-            const slides = document.getElementsByClassName("mySlides");
-            const dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";  
             }
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}    
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
+            for (let j = 0; j < dots.length; j++) {
+                dots[j].className = dots[j].className.replace(" active", "");
             }
             slides[slideIndex - 1].style.display = "block";  
             dots[slideIndex - 1].className += " active";
-            setTimeout(showSlides, 3000); // Change image every 3 seconds
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
 
-        function loadFooter() {
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    const footerPlaceholder = document.getElementById('footer-placeholder');
-                    footerPlaceholder.innerHTML = data;
-                })
-                .catch(error => console.error('Error loading footer:', error));
-        }
-
-        loadFooter();
+        // Scroll Header Visibility
+        window.onscroll = function() {
+            let header = document.getElementById("header");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        };
     </script>
 </body>
 </html>
