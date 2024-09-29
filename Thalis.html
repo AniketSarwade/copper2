@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puja Thalis</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your main CSS file -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0e1;
+            color: #3d2c2e;
+        }
+
+        /* Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .slideshow-image {
+            width: 100%;
+            height: 400px; /* Set height for slideshow images */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #800000;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0; /* Keep the header always at the top */
+            left: 0;
+            z-index: 1000; /* Make sure it stays above other content */
+            transition: top 0.3s; /* Smooth transition for header */
+            text-align: center; /* Center the header text */
+            font-family: 'Allura', cursive; /* Set font to Allura */
+            color: white; /* Set text color to white */
+        }
+
+        .hidden {
+            top: -100px; /* Hide the header above the viewport */
+        }
+
+        /* Container Styles */
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            display: grid; /* Use CSS Grid */
+            grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+            gap: 20px; /* Space between cards */
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s; /* Hover effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 300px; /* Set fixed height for cards */
+            display: flex; /* Use flexbox */
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: space-between; /* Space out items */
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px; /* Set fixed height for images */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+        }
+
+        .card h3 {
+            margin: 10px 0;
+            color: #800000; /* Maroon color for titles */
+        }
+
+        .card p {
+            padding: 0 10px;
+            margin: 0 0 10px; /* Adjust margin */
+        }
+
+        .card button {
+            background-color: #800000; /* Maroon color for button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 auto; /* Center the button horizontally */
+            transition: background-color 0.3s; /* Transition for button */
+            width: 90%; /* Optional: make button width responsive */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+        }
+
+        .card button:hover {
+            background-color: #a00000; /* Darker maroon on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #b87333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px; /* Space above footer */
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr; /* 1 card per row on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="slideshow/s1.jpg" class="slideshow-image" alt="Slideshow Image 1">
+        </div>
+        <div class="mySlides">
+            <img src="slideshow/s2.jpg" class="slideshow-image" alt="Slideshow Image 2">
+        </div>
+        <div class="mySlides">
+            <img src="slideshow/s3.jpg" class="slideshow-image" alt="Slideshow Image 3">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="hidden">
+        <h1>CopperCrafts</h1>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <img src="images/copper_pujaplate.jpg" alt="Puja Plate">
+            <h3>Puja Plate</h3>
+            <p>Beautifully crafted copper puja plate for your rituals.</p>
+            <button>Buy Now</button>
+        </div>
+        
+        <div class="card">
+            <img src="images/copper_smalldiya.jpg" alt="Small Diya">
+            <h3>Small Diya</h3>
+            <p>Illuminate your puja with this elegant small diya.</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="images/copper_bigdiya.jpg" alt="Big Diya">
+            <h3>Big Diya</h3>
+            <p>A larger diya for a more radiant puja experience.</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="images/copper_hkholder.jpg" alt="Haldi Kumkum Holder">
+            <h3>Haldi Kumkum Holder</h3>
+            <p>Traditional holder for haldi and kumkum during rituals.</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="images/copper_pujabell.jpg" alt="Puja Bell">
+            <h3>Puja Bell</h3>
+            <p>Charming bell to announce the beginning of your prayers.</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="images/copper_ih.jpg" alt="Incense Holder">
+            <h3>Incense Holder</h3>
+            <p>Stylish holder for your favorite incense sticks.</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="card">
+            <img src="images/copper_fruitthali.jpg" alt="Fruit Thali">
+            <h3>Fruit Thali</h3>
+            <p>Decorative thali for offering fruits during puja.</p>
+            <button>Buy Now</button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer"></footer>
+
+    <script>
+         fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+        // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        // Header visibility on scroll
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", function() {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                header.classList.remove("hidden"); // Show header when scrolling down
+            } else {
+                header.classList.add("hidden"); // Hide header when scrolling up
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        });
+    </script>
+</body>
+</html>
