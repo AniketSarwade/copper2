@@ -74,13 +74,76 @@
             object-fit: cover; /* Makes sure images cover the entire container while maintaining aspect ratio */
         }
 
-        /* Video Styles */
+        /* Navigation for the slideshow */
+        .slideshow-navigation {
+            position: absolute;
+            bottom: 20px; /* Position it at the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Shift back to the left by half its width */
+            display: flex;
+            gap: 20px; /* Adjust space between links */
+            z-index: 10;
+            margin: 0; /* Reset margin */
+        }
+
+        .slideshow-navigation a {
+            color: #f4f2f2; /* Maroon text color */
+            font-family: 'Allura', cursive; /* Apply Allura font */
+            text-decoration: none; /* Remove underline by default */
+            font-size: 1.5em;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .slideshow-navigation a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+
+        /* Card Styles */
+        .card {
+            display: flex; /* Use flexbox to align video and description side by side */
+            width: calc(100% - 10px); /* Full width minus padding */
+            max-width: 1200px; /* Optional max width for larger screens */
+            margin: 20px auto; /* Center the card with margin */
+            border-radius: 10px; /* Optional: rounded corners */
+            overflow: hidden; /* Prevent overflow of children */
+            background-color: #f5f5dc; /* Transparent white background for the card */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+        }
+        /* Updated Card Text Styles */
+        .card h3 {
+            margin: 10px 0;
+            color: #333333; /* Change this to your desired color */
+        }
+
+        .card p {
+            padding: 0 10px;
+            margin: 0 0 10px; /* Adjust margin */
+            color: #333333; /* Change this to your desired color */
+        }
+
+        .card button {
+            background-color: #800000; /* Maroon color for button */
+            color: white; /* Button text color */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 auto; /* Center the button horizontally */
+            transition: background-color 0.3s; /* Transition for button */
+            width: 90%; /* Optional: make button width responsive */
+        }
+
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge the card on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+        }
+
         .video-container {
-            position: relative; /* To position the overlay */
-            width: 100%;
-            height: 350px; /* Decreased height */
+            width: 50%; /* Video takes half of the card width */
+            height: 350px; /* Height of the video */
             overflow: hidden;
-            margin-top: 20px; /* Space between slideshow and video */
         }
 
         .video-container video {
@@ -90,45 +153,35 @@
             object-position: center; /* Centers the video */
         }
 
-        /* Overlay Styles */
-        .video-overlay {
-            position: absolute;
-            top: 0; /* Cover the entire container */
-            left: 0; /* Cover the entire container */
-            right: 0; /* Cover the entire container */
-            bottom: 0; /* Cover the entire container */
-            padding: 20px; /* Padding for the text */
-            color: #fff;
-            z-index: 1; /* Make sure text is above the video */
-            transition: background-color 0.3s ease; /* Smooth transition for background color */
-            background-color: rgba(0, 0, 0, 0); /* No background by default */
+        .description {
+            padding: 20px; /* Padding for description */
+            width: 50%; /* Description takes half of the card width */
             display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center text vertically */
-            align-items: flex-end; /* Align text to the right */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
         }
 
-        .video-container:hover .video-overlay {
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on hover */
-        }
-
-        .video-overlay h3 {
+        .description h3 {
             margin: 0;
-            font-size: 2.5em; /* Use header font size */
-            font-family: 'Allura', cursive; /* Same font as header */
-            text-align: right; /* Align text to the right */
+            font-size: 1.5em; /* Font size for heading */
         }
 
-        .video-overlay p {
-            margin: 5px 0;
-            font-size: 1.2em;
-            text-align: right; /* Align text to the right */
+        .description p {
+            margin: 10px 0; /* Margin for paragraph */
+            font-size: 1em; /* Font size for paragraph */
         }
 
-        .video-overlay a {
-            color: #ffcc00; /* Highlight color */
-            text-decoration: underline;
+        .description a {
+            color: #800000; /* Highlight color */
+            text-decoration: none;
             font-weight: bold;
+            
+            
+        }
+        .description a:hover {
+            color:#800000; /* Change to Deep Gold on hover */
+            /* transform: scale(1.1); /* Increase size by 10%  */
+             text-decoration: underline; 
         }
 
         /* Footer Styles */
@@ -159,7 +212,6 @@
 <body>
     <header id="header">
         <h1>CopperCraft</h1>
-        <!-- <h2>The ancient metal for modern health.</h2> -->
     </header>
 
     <!-- Slideshow Section -->
@@ -173,11 +225,15 @@
         <div class="mySlides fade">
             <img src="slideshow/s3.jpg" alt="Slideshow Image 3">
         </div>
-
+        <!-- Slideshow Navigation -->
+        <div class="slideshow-navigation">
+            <a href="home.html">Home</a>
+            <a href="products.html">All Products</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
         <!-- Slideshow Overlay for Header Text -->
         <div class="slideshow-overlay">
             <h1>CopperCraft</h1>
-            <!-- <h2>The ancient metal for modern health.</h2> -->
         </div>
 
         <!-- Navigation Dots -->
@@ -189,66 +245,65 @@
     </div>
 
     <!-- Video Section for Copper Utensils -->
-    <div class="video-container">
-        <video autoplay loop muted>
-            <source src="video/CV1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay">
-            <h3>Discover the Craft of Copper</h3>
-            <p>Embrace a healthier lifestyle with our handcrafted copper utensils.</p>
-            <a href="utensils.html">Discover our Copper Products</a>
+    <div class="card">
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="video/CV1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="description">
+            <h3>Discover the Craft of Copper Utensils </h3>
+            <p></p>
+            <a href="utensils.html">Click here to discover Utensils</a>
         </div>
     </div>
 
     <!-- Video Section for Puja Thalis -->
-    <div class="video-container">
-        <video autoplay loop muted>
-            <source src="video/cv2.mp4" type="video/mp4"> <!-- Change the source for Puja Thalis video if needed -->
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-overlay">
+    <div class="card">
+        <div class="video-container">
+            <video autoplay loop muted>
+                <source src="video/cv2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="description">
             <h3>Explore Our Puja Thalis</h3>
-            <p>Beautifully crafted thalis for your sacred rituals.</p>
-            <a href="Thalis.html">Discover our Puja Thalis</a> <!-- Redirects to Thalis.html -->
+            <p></p>
+            <a href="Thalis.html">Click here discover our Puja Thalis</a>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer id="footer"></footer>
+    <footer>
+        <p>&copy; 2024 CopperCraft. All rights reserved.</p>
+        <p><a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
 
     <script>
-        // Load footer content from footer.html
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-        // Slideshow Functionality
         let slideIndex = 0;
         showSlides();
 
         function showSlides() {
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            for (let i = 0; i < slides.length; i++) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";  
             }
             slideIndex++;
             if (slideIndex > slides.length) {slideIndex = 1}    
-            for (let j = 0; j < dots.length; j++) {
-                dots[j].className = dots[j].className.replace(" active", "");
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
             }
-            slides[slideIndex - 1].style.display = "block";  
-            dots[slideIndex - 1].className += " active";
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
             setTimeout(showSlides, 5000); // Change image every 5 seconds
         }
 
-        // Scroll Header Visibility
+        // Show header on scroll
         window.onscroll = function() {
-            let header = document.getElementById("header");
+            const header = document.getElementById("header");
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                 header.classList.add("scrolled");
             } else {
